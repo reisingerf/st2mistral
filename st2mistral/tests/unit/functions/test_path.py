@@ -18,11 +18,13 @@ from st2mistral.tests.unit import test_function_base as base
 from yaql.language import factory
 YAQL_ENGINE = factory.YaqlFactory().create()
 
+
 class JinjaPathTestCase(base.JinjaFunctionTestCase):
 
     def test_basename(self):
         template = '{{ basename(_.k1) }}'
-        result = self.eval_expression(template, {'k1': '/some/path/to/file.txt'})
+        result = self.eval_expression(
+            template, {'k1': '/some/path/to/file.txt'})
         self.assertEqual(result, 'file.txt')
 
         result = self.eval_expression(template, {'k1': '/some/path/to/dir'})
@@ -33,7 +35,8 @@ class JinjaPathTestCase(base.JinjaFunctionTestCase):
 
     def test_dirname(self):
         template = '{{ dirname(_.k1) }}'
-        result = self.eval_expression(template, {'k1': '/some/path/to/file.txt'})
+        result = self.eval_expression(
+            template, {'k1': '/some/path/to/file.txt'})
         self.assertEqual(result, '/some/path/to')
 
         result = self.eval_expression(template, {'k1': '/some/path/to/dir'})
