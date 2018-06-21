@@ -28,6 +28,7 @@ def get_functions():
     from st2mistral.functions import time
     from st2mistral.functions import use_none
     from st2mistral.functions import version
+    from st2mistral.functions import path
 
     return {
         'from_json_string': data.from_json_string,
@@ -51,7 +52,9 @@ def get_functions():
         'version_less_than': version.version_less_than,
         'version_match': version.version_match,
         'version_more_than': version.version_more_than,
-        'version_strip_patch': version.version_strip_patch
+        'version_strip_patch': version.version_strip_patch,
+        'basename': path.basename,
+        'dirname': path.dirname
     }
 
 
