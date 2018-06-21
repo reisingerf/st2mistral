@@ -31,7 +31,7 @@ class JinjaPathTestCase(base.JinjaFunctionTestCase):
         self.assertEqual(result, 'dir')
 
         result = self.eval_expression(template, {'k1': '/some/path/to/dir/'})
-        self.assertEqual(result, 'dir')
+        self.assertEqual(result, '')
 
     def test_dirname(self):
         template = '{{ dirname(_.k1) }}'
@@ -43,7 +43,7 @@ class JinjaPathTestCase(base.JinjaFunctionTestCase):
         self.assertEqual(result, '/some/path/to')
 
         result = self.eval_expression(template, {'k1': '/some/path/to/dir/'})
-        self.assertEqual(result, '/some/path/to')
+        self.assertEqual(result, '/some/path/to/dir')
 
 
 class YAQLPathTestCase(base.YaqlFunctionTestCase):
@@ -65,7 +65,7 @@ class YAQLPathTestCase(base.YaqlFunctionTestCase):
         result = YAQL_ENGINE(expression).evaluate(
             context=self.get_yaql_context({"k1": '/some/path/to/dir/'})
         )
-        self.assertEqual(result, 'dir')
+        self.assertEqual(result, '')
 
     def test_dirname(self):
         expression = 'dirname($.k1)'
@@ -84,4 +84,4 @@ class YAQLPathTestCase(base.YaqlFunctionTestCase):
         result = YAQL_ENGINE(expression).evaluate(
             context=self.get_yaql_context({"k1": '/some/path/to/dir/'})
         )
-        self.assertEqual(result, '/some/path/to')
+        self.assertEqual(result, '/some/path/to/dir')
