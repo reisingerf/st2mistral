@@ -24,11 +24,11 @@ def get_functions():
     from st2mistral.functions import data
     from st2mistral.functions import json_escape
     from st2mistral.functions import jsonpath_query
+    from st2mistral.functions import path
     from st2mistral.functions import regex
     from st2mistral.functions import time
     from st2mistral.functions import use_none
     from st2mistral.functions import version
-    from st2mistral.functions import path
 
     return {
         'from_json_string': data.from_json_string,

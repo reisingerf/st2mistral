@@ -21,9 +21,9 @@ __all__ = [
 ]
 
 
-def basename(path):
+def basename(context, path):
     return os.path.basename(path)
 
 
-def dirname(path):
+def dirname(context, path):
     return os.path.dirname(path)
